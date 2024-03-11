@@ -1,9 +1,20 @@
+
+#
+# V1.0
+# Created by craeckor
+# Nginx-Manager
+# A simple Powershell Windows-Forms Nginx-Manager
+#
+
+# Checks if nginx.exe is available. If not = error message
 if (Test-Path ".\nginx.exe") {
     Add-Type -AssemblyName System.Windows.Forms
     Add-Type -AssemblyName System.Drawing
 
+    # Import Icon from nginx.exe
     $icon = [System.Drawing.Icon]::ExtractAssociatedIcon("nginx.exe")
 
+    # Get current Nginx version
     $nginxv = cmd /c nginx.exe -v 2`>`&1
     $nginxv = $nginxv | ConvertFrom-String -Delimiter nginx | Select-Object -ExpandProperty P3
     $nginxv = $($nginxv -replace "/", "")
@@ -20,6 +31,7 @@ if (Test-Path ".\nginx.exe") {
         }
     }
 
+    # Another function to check if nginx is running
     function CheckNginxStatus2 {
         $nginxStatus = Get-Process -Name nginx -ErrorAction SilentlyContinue
         if ($nginxStatus) {
@@ -41,11 +53,13 @@ if (Test-Path ".\nginx.exe") {
 	    }
     }
 
+    # Function to execute nginx commands, capture the information and give the information out
     function ExecuteNginxCommandwithCapture($command) {
 		$nginxoutput = cmd /c nginx.exe $command 2`>`&1
         [System.Windows.Forms.MessageBox]::Show("$nginxoutput", "Information", "OK", "Information")
     }
 
+    # Function to start nginx
     function StartNginx {
         $isNginxrunning = CheckNginxStatus2
 	    if ($isNginxrunning) {
