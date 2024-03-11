@@ -6,6 +6,9 @@ A simple to simply manage Nginx on Windows on a (G)UI.
 
 1. Download Nginx-Manager.exe from the current release
 2. Move Nginx-Manager.exe into your ROOT-folder from NGINX (Where the nginx.exe is located)
+
+![Screenshot_4.png](./Screenshots/Screenshot_4.png)
+
 3. Run it.
 
 ## For Devs
