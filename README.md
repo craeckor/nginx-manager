@@ -17,8 +17,13 @@ A simple to simply manage Nginx on Windows on a (G)UI.
 
 ## Screenshots
 Screenshot 1:
+
 ![Screenshot_1.png](./Screenshots/Screenshot_1.png)
+
 Screenshot 2:
+
 ![Screenshot_2.png](./Screenshots/Screenshot_2.png)
+
 Screenshot 3:
+
 ![Screenshot_2.png](./Screenshots/Screenshot_3.png)
